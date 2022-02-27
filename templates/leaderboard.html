@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Logoquiz | Leaderboard</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard">Leaderboard</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">About us</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <center><h1><span class="yellow text-center">Leaderboard</span></h1></center>
+
+        <br/>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr class="table-dark">
+                    <th><h1 class="heading-hover" style="color: black;">Player name</h1></th>
+                    <th><h1 class="heading-hover" style="color: black;">Points</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                <tr>
+                    <td>{{object.name}}</td>
+                    <td>{{object.points}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<div>
+
+    <ul class="animated-thank-you">
+        <!-- <li>Hello,</li>
+        <li>Thank</li>
+        <li>You</li>
+        <li>for</li>
+        <li>all</li>
+        <li>the</li>
+        <li>special</li>
+        <li>things</li>
+        <li>you</li>
+        <li>do!!</li> -->
+        <li>Thank You ! for playing.</li>
+        <li>wait for still more fun games.😉</li>
+    </ul>
+</div>
+
+
+</body>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Satisfy'); 
+ul.animated-thank-you { 
+     width:100%;
+     max-width:600px;
+     margin:0 auto;
+     font-weight:500;
+     list-style-type: none;
+}
+ul.animated-thank-you li { 
+     float:left;
+     display:none;
+     height:85px;
+     font-family: 'Satisfy', cursive;
+     color:#0ca4dc;
+     font-size:30px;
+}                    
+
+</style>
+
+<script>
+    jQuery(function(){
+        var animateThankYou = function() {
+            $('ul.animated-thank-you').find('li').css({'display':'none'});
+            var obj = $('ul.animated-thank-you'), 
+            lists = obj.children();
+            $(lists).css({ 
+                'opacity': 0,
+                'display':'inline-block',
+            });
+            $( lists ).each(function( i ) {
+                $(this).delay( i * 1000 ).animate({ 
+                    'opacity': 1
+                });
+            });
+        };
+    
+        animateThankYou();
+    });
+    </script>
